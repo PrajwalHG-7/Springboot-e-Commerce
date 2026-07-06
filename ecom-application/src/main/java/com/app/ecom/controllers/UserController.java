@@ -1,14 +1,14 @@
 package com.app.ecom.controllers;
 
-import com.app.ecom.models.User;
-import com.app.ecom.services.UserService;
+import java.util.List;
+import java.util.Optional;
+import com.app.ecom.dto.UserRequest;
+import com.app.ecom.dto.UserResponse;
 import lombok.RequiredArgsConstructor;
+import com.app.ecom.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,23 +18,23 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        return new ResponseEntity<>(userService.addUser(user), HttpStatus.CREATED);
+    public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest userRequest) {
+        return new ResponseEntity<>(userService.addUser(userRequest), HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
+    public ResponseEntity<List<UserResponse>> getAllUsers() {
         return new ResponseEntity<>(userService.fetchAllUsers(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable Long id) {
+    public ResponseEntity<UserResponse> getUser(@PathVariable Long id) {
         return userService.fetchUser(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateUser(@RequestBody User newUser, @PathVariable Long id) {
-        return new ResponseEntity<>(userService.updateUser(newUser, id) != null ? userService.updateUser(newUser, id) : "User does not exist", HttpStatus.OK);
+    public ResponseEntity<?> updateUser(@RequestBody UserRequest updatedUserRequest, @PathVariable Long id) {
+        return new ResponseEntity<>(userService.updateUser(updatedUserRequest, id) != null ? userService.updateUser(updatedUserRequest, id) : "User does not exist", HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

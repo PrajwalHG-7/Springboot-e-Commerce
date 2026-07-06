@@ -1,7 +1,9 @@
 package com.app.ecom.dto;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
+@Data
 public class AddressDTO {
     private String street;
     private String city;

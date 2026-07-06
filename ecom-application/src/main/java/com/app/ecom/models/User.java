@@ -26,7 +26,7 @@ public class User {
     @NotBlank(message = "E-mail is required")
     private String email;
     private String phone;
-    private UserRoles role = UserRoles.CUSTOMER;
+    private UserRole role = UserRole.CUSTOMER;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
