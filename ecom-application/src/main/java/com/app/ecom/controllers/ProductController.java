@@ -19,7 +19,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping("/api/products")
+    @PostMapping
     public ResponseEntity<ProductResponse> createProduct(@RequestBody ProductRequest productRequest) {
         return new ResponseEntity<ProductResponse>(productService.createProduct(productRequest), HttpStatus.CREATED);
     }

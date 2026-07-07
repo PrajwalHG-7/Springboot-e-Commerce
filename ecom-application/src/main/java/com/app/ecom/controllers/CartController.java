@@ -1,9 +1,9 @@
 package com.app.ecom.controllers;
 
+import lombok.RequiredArgsConstructor;
 import com.app.ecom.dto.CartItemRequest;
 import com.app.ecom.dto.CartItemResponse;
 import com.app.ecom.services.CartService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,10 @@ public class CartController {
 
     @PostMapping
     public ResponseEntity<?> addToCart(@RequestHeader("X-User-ID") String userId, @RequestBody CartItemRequest request) {
-        return new ResponseEntity<>(cartService.addToCart(userId, request), HttpStatus.CREATED);
+        CartItemResponse cartItemResponse = cartService.addToCart(userId, request);
+        if(cartItemResponse == null)
+            return ResponseEntity.badRequest().body("Product Out of Stock OR User or Product not found");
+
+        return new ResponseEntity<>(cartItemResponse, HttpStatus.ACCEPTED);
     }
-    
 }

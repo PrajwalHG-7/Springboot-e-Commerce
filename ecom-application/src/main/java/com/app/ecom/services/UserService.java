@@ -3,6 +3,8 @@ package com.app.ecom.services;
 import com.app.ecom.dto.AddressDTO;
 import com.app.ecom.dto.UserRequest;
 import com.app.ecom.dto.UserResponse;
+import com.app.ecom.exception.EmailAlreadyExistsException;
+import com.app.ecom.exception.PhoneAlreadyExistsException;
 import com.app.ecom.models.Address;
 import com.app.ecom.models.User;
 import com.app.ecom.repository.UserRepository;
@@ -35,12 +37,22 @@ public class UserService {
             addressDTO.setState(user.getAddress().getState());
             addressDTO.setCountry(user.getAddress().getCountry());
             addressDTO.setZipcode(user.getAddress().getZipcode());
+
+            response.setAddress(addressDTO);
         }
 
         return response;
     }
 
     private void updateUserFromRequest(User user, UserRequest userRequest) {
+        if (userRepository.existsByEmail(userRequest.getEmail())) {
+            throw new EmailAlreadyExistsException("Email already exists");
+        }
+
+        if (userRepository.existsByPhone(userRequest.getPhone())) {
+            throw new PhoneAlreadyExistsException("Phone number already exists");
+        }
+
         user.setFirstName(userRequest.getFirstName() != null ? userRequest.getFirstName() : user.getFirstName());
         user.setLastName(userRequest.getLastName() != null ? userRequest.getLastName() : user.getLastName());
         user.setEmail(userRequest.getEmail() != null ? userRequest.getEmail() : user.getEmail());

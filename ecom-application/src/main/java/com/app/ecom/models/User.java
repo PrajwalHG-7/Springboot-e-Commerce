@@ -24,7 +24,10 @@ public class User {
     private String lastName;
     @Email(message = "Enter a valid e-mail")
     @NotBlank(message = "E-mail is required")
+    @Column(unique = true, nullable = false)
     private String email;
+    @NotBlank(message = "Phone number is required")
+    @Column(unique = true, nullable = false)
     private String phone;
     private UserRole role = UserRole.CUSTOMER;
 
