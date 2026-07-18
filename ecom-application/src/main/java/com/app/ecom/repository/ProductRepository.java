@@ -11,6 +11,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @Repository
 public interface ProductRepository extends JpaRepository<@NonNull Product, @NonNull Long> {
     List<Product> findByActiveTrue();
-    @Query("SELECT p FROM products p WHERE p.active = true AND p.stockQuantity > 0 AND (LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(p.description) LIKE LOWER(CONCAT('%', :keyword, '%')))")
+    @Query("SELECT p FROM products p WHERE p.active = true AND p.stockQuantity > 0 AND (LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(COALESCE(p.description, '')) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(COALESCE(p.category, '')) LIKE LOWER(CONCAT('%', :keyword, '%')))")
     List<Product> searchProduct(@Param("keyword") String keyword);
 }

@@ -63,11 +63,11 @@ public class ProductService {
                 }).orElseThrow(() -> new RuntimeException("Product: "+id+" not found"));
     }
 
-    public Product removeProduct(Long id) {
+    public ProductResponse removeProduct(Long id) {
         Product delProduct = productRepository.findById(id).orElse(null);
         delProduct.setActive(false);
         productRepository.save(delProduct);
-        return delProduct;
+        return mapToProductResponse(delProduct);
     }
 
     public List<ProductResponse> searchProducts(String keyword) {

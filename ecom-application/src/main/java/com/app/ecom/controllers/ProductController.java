@@ -45,7 +45,7 @@ public class ProductController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<?> deleteUser(@RequestParam String keyword) {
+    public ResponseEntity<?> searchUser(@RequestParam String keyword) {
         return new ResponseEntity<>(productService.searchProducts(keyword), HttpStatus.OK);
     }
 }
