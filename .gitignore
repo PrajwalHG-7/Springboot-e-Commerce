@@ -1,0 +1,256 @@
+# ============================================================
+
+# Java
+
+# ============================================================
+
+*.class
+*.log
+*.ctxt
+*.jar
+*.war
+*.ear
+hs_err_pid*
+replay_pid*
+
+# ============================================================
+
+# Maven
+
+# ============================================================
+
+**/target/
+**/pom.xml.releaseBackup
+**/pom.xml.versionsBackup
+**/pom.xml.next
+**/release.properties
+**/dependency-reduced-pom.xml
+**/buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ============================================================
+
+# Spring Boot / Application
+
+# ============================================================
+
+# Local application configuration
+
+application-local.properties
+application-dev.properties
+application-test.properties
+application-prod.properties
+
+# Environment files
+
+.env
+.env.*
+!.env.example
+
+# ============================================================
+
+# H2 Database
+
+# ============================================================
+
+*.mv.db
+*.trace.db
+*.lock.db
+
+# H2 database files with common names
+
+**/H2Database.mv.db
+**/H2Database.trace.db
+**/H2Database.lock.db
+
+# ============================================================
+
+# IntelliJ IDEA
+
+# ============================================================
+
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# IntelliJ workspace/user-specific files
+
+workspace.xml
+usage.statistics.xml
+dictionaries/
+shelf/
+
+# ============================================================
+
+# Eclipse
+
+# ============================================================
+
+.classpath
+.project
+.settings/
+.factorypath
+.springBeans
+.sts4-cache/
+
+# ============================================================
+
+# VS Code
+
+# ============================================================
+
+.vscode/
+*.code-workspace
+
+# ============================================================
+
+# NetBeans
+
+# ============================================================
+
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ============================================================
+
+# Gradle
+
+# ============================================================
+
+.gradle/
+**/build/
+
+# ============================================================
+
+# OS generated files
+
+# ============================================================
+
+# macOS
+
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+
+*~
+.directory
+
+# ============================================================
+
+# Temporary / Backup files
+
+# ============================================================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.backup
+*.orig
+*.old
+
+# ============================================================
+
+# IDE / Editor temporary files
+
+# ============================================================
+
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries/
+.idea/**/shelf/
+
+# ============================================================
+
+# Generated documentation / reports
+
+# ============================================================
+
+**/site/
+**/reports/
+
+# ============================================================
+
+# Coverage / Test output
+
+# ============================================================
+
+**/coverage/
+**/.nyc_output/
+**/test-results/
+**/surefire-reports/
+**/failsafe-reports/
+
+# ============================================================
+
+# Node.js (if used for frontend later)
+
+# ============================================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+
+# ============================================================
+
+# Secrets / Credentials
+
+# ============================================================
+
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Local secret/config files
+
+secrets.properties
+credentials.properties
+
+# ============================================================
+
+# Docker
+
+# ============================================================
+
+docker-compose.override.yml
+
+# ============================================================
+
+# General generated files
+
+# ============================================================
+
+out/
+bin/
+classes/
+generated/
+generated-sources/
+generated-test-sources/
+.cache/
+temp/
+tmp/
