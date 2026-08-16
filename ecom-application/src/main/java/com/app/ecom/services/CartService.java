@@ -57,6 +57,7 @@ public class CartService {
             if(product.getStockQuantity() < existingCartItem.getQuantity() + request.getQuantity())
                 return null;
             existingCartItem.setQuantity(existingCartItem.getQuantity() + request.getQuantity());
+            existingCartItem.setUnitPrice(product.getPrice());
             existingCartItem.setPrice(product.getPrice().multiply(BigDecimal.valueOf(existingCartItem.getQuantity())));
             cartItemRepository.save(existingCartItem);
             return mapToCartResponse(existingCartItem);
@@ -66,6 +67,7 @@ public class CartService {
             cartItem.setUser(user);
             cartItem.setProduct(product);
             cartItem.setQuantity(request.getQuantity());
+            cartItem.setUnitPrice(product.getPrice());
             cartItem.setPrice(product.getPrice().multiply(BigDecimal.valueOf(request.getQuantity())));
             cartItemRepository.save(cartItem);
             return mapToCartResponse(cartItem);

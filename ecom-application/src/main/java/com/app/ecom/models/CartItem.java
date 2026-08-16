@@ -27,6 +27,7 @@ public class CartItem {
 
     private Integer quantity;
     private BigDecimal price;
+    private BigDecimal unitPrice;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
