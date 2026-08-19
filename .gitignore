@@ -1,7 +1,5 @@
 # ============================================================
-
 # Java
-
 # ============================================================
 
 *.class
@@ -14,9 +12,7 @@ hs_err_pid*
 replay_pid*
 
 # ============================================================
-
 # Maven
-
 # ============================================================
 
 **/target/
@@ -30,28 +26,47 @@ replay_pid*
 .mvn/wrapper/maven-wrapper.jar
 
 # ============================================================
-
 # Spring Boot / Application
-
 # ============================================================
 
-# Local application configuration
+# ------------------------------------------------------------
+# Local Spring Boot configuration
+# Ignore application.properties in EVERY module/microservice
+# ------------------------------------------------------------
 
+**/src/main/resources/application.properties
+
+# Spring profile-specific local configurations
+**/src/main/resources/application-local.properties
+**/src/main/resources/application-dev.properties
+**/src/main/resources/application-test.properties
+**/src/main/resources/application-prod.properties
+
+# Also ignore profile configs if they exist outside the
+# conventional src/main/resources location
 application-local.properties
 application-dev.properties
 application-test.properties
 application-prod.properties
 
+# ------------------------------------------------------------
+# Optional: Ignore all Spring Boot local config variants
+# Uncomment if you use additional profiles such as staging,
+# docker, qa, etc.
+# ------------------------------------------------------------
+
+# **/src/main/resources/application-*.properties
+
+# ------------------------------------------------------------
 # Environment files
+# ------------------------------------------------------------
 
 .env
 .env.*
 !.env.example
 
 # ============================================================
-
 # H2 Database
-
 # ============================================================
 
 *.mv.db
@@ -59,15 +74,12 @@ application-prod.properties
 *.lock.db
 
 # H2 database files with common names
-
 **/H2Database.mv.db
 **/H2Database.trace.db
 **/H2Database.lock.db
 
 # ============================================================
-
 # IntelliJ IDEA
-
 # ============================================================
 
 .idea/
@@ -76,16 +88,13 @@ application-prod.properties
 *.ipr
 
 # IntelliJ workspace/user-specific files
-
 workspace.xml
 usage.statistics.xml
 dictionaries/
 shelf/
 
 # ============================================================
-
 # Eclipse
-
 # ============================================================
 
 .classpath
@@ -96,18 +105,14 @@ shelf/
 .sts4-cache/
 
 # ============================================================
-
 # VS Code
-
 # ============================================================
 
 .vscode/
 *.code-workspace
 
 # ============================================================
-
 # NetBeans
-
 # ============================================================
 
 /nbproject/private/
@@ -117,29 +122,23 @@ shelf/
 /.nb-gradle/
 
 # ============================================================
-
 # Gradle
-
 # ============================================================
 
 .gradle/
 **/build/
 
 # ============================================================
-
 # OS generated files
-
 # ============================================================
 
 # macOS
-
 .DS_Store
 .AppleDouble
 .LSOverride
 ._*
 
 # Windows
-
 Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db
@@ -148,14 +147,11 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # Linux
-
 *~
 .directory
 
 # ============================================================
-
 # Temporary / Backup files
-
 # ============================================================
 
 *.tmp
@@ -168,9 +164,7 @@ $RECYCLE.BIN/
 *.old
 
 # ============================================================
-
 # IDE / Editor temporary files
-
 # ============================================================
 
 .idea/**/workspace.xml
@@ -180,18 +174,14 @@ $RECYCLE.BIN/
 .idea/**/shelf/
 
 # ============================================================
-
 # Generated documentation / reports
-
 # ============================================================
 
 **/site/
 **/reports/
 
 # ============================================================
-
 # Coverage / Test output
-
 # ============================================================
 
 **/coverage/
@@ -201,9 +191,7 @@ $RECYCLE.BIN/
 **/failsafe-reports/
 
 # ============================================================
-
-# Node.js (if used for frontend later)
-
+# Node.js
 # ============================================================
 
 node_modules/
@@ -214,9 +202,7 @@ pnpm-debug.log*
 .npm/
 
 # ============================================================
-
 # Secrets / Credentials
-
 # ============================================================
 
 *.pem
@@ -227,22 +213,17 @@ pnpm-debug.log*
 *.keystore
 
 # Local secret/config files
-
 secrets.properties
 credentials.properties
 
 # ============================================================
-
 # Docker
-
 # ============================================================
 
 docker-compose.override.yml
 
 # ============================================================
-
 # General generated files
-
 # ============================================================
 
 out/
