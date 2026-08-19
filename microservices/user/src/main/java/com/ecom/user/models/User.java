@@ -1,4 +1,4 @@
-package models;
+package com.ecom.user.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

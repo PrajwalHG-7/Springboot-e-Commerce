@@ -1,4 +1,4 @@
-package exception;
+package com.ecom.user.exception;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

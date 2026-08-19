@@ -1,13 +1,13 @@
-package services;
+package com.ecom.user.services;
 
-import com.app.ecom.dto.AddressDTO;
-import com.app.ecom.dto.UserRequest;
-import com.app.ecom.dto.UserResponse;
-import com.app.ecom.exception.EmailAlreadyExistsException;
-import com.app.ecom.exception.PhoneAlreadyExistsException;
-import com.app.ecom.models.Address;
-import com.app.ecom.models.User;
-import com.app.ecom.repository.UserRepository;
+import com.ecom.user.dto.AddressDTO;
+import com.ecom.user.dto.UserRequest;
+import com.ecom.user.dto.UserResponse;
+import com.ecom.user.exception.EmailAlreadyExistsException;
+import com.ecom.user.exception.PhoneAlreadyExistsException;
+import com.ecom.user.models.Address;
+import com.ecom.user.models.User;
+import com.ecom.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

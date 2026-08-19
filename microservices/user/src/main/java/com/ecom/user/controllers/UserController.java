@@ -1,8 +1,8 @@
-package controllers;
+package com.ecom.user.controllers;
 
-import com.app.ecom.dto.UserRequest;
-import com.app.ecom.dto.UserResponse;
-import com.app.ecom.services.UserService;
+import com.ecom.user.dto.UserRequest;
+import com.ecom.user.dto.UserResponse;
+import com.ecom.user.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

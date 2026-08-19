@@ -1,4 +1,4 @@
-package exception;
+package com.ecom.user.exception;
 
 public class EmailAlreadyExistsException extends RuntimeException {
 
